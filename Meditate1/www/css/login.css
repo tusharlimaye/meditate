@@ -1,0 +1,210 @@
+
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    /*background-color:#E4E4E4;
+    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #A7A7A7),
+        color-stop(0.51, #E4E4E4)
+    );*/
+    background-attachment:fixed;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    /*font-size:12px;*/
+    height:100%;
+    margin:0px;
+    padding:0px;
+    /*text-transform:uppercase;*/
+    width:100%;
+    z-index: -1;
+}
+
+/* Portrait layout (default) */
+.app {
+    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
+    position:absolute;             /* position in the center of the screen */
+    left:50%;
+    top:50%;
+    height:50px;                   /* text area height */
+    width:225px;                   /* text area width */
+    text-align:center;
+    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+}
+
+h1 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+.event {
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+
+.event.listening {
+    background-color:#333333;
+    display:block;
+}
+
+.event.received {
+    background-color:#4B946A;
+    display:none;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
+/*------------------------self----------------------*/
+.navbar{
+    width: 100%;
+    height: 21px;
+    background-color: gray;
+    position: absolute;
+    top: 0;
+    z-index: 5;
+}
+.content{
+    width: 100%;
+    margin-top: 21px;
+    height: -webkit-calc( 100vh - 21px);
+    background-color: #e6f5fe;
+}
+
+.content .content-middle{
+    width: 100%;
+    height: -webkit-calc(40vh - 10px);
+    background-image: url('../img/login-back.png');
+    background-size: 100% 100%;
+    text-align: center;
+}
+.content .content-middle h1{
+    font-weight: bold;
+    font-style: italic;
+    font-size: 35px;
+    color: #2d3091;
+    padding-top: 20vh;
+    text-shadow:3px 3px 3px white;
+}
+.content .content-middle img{
+    position: absolute;
+    top:21px;
+    right: 5vw;
+    width: 30%;
+}
+.content .content-down{
+    width: 100%;
+    height: -webkit-calc(60vh - 11px);   
+}
+.content .content-down input{
+    width: 80%;
+    font-size: 15px;
+    background-color: transparent;
+    border:0px;
+    border-bottom: 1px solid gray !important;
+    padding-top: 5vh;
+}
+.content .content-down a{
+    width: 80%;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    display: inline-block;
+    background-color: #2d3091;
+    border-radius: 7px;
+    text-decoration: none;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    margin-top:30px;
+}
+.content .content-down a:hover{
+    background-color: #96d9ef;
+}
+.login-alert{
+    width: 60vw;
+    height: 25vh;
+    border-radius: 7px;
+    background-color: white;
+    position: absolute;
+    text-align: center;
+    top: 37vh;
+    left: 20vw;
+}
+.login-alert .login-alert-top{
+    width: 100%;
+    height: 70%;
+    border-bottom: 1px solid black !important;
+}
+.login-alert .login-alert-top h2{
+    padding: 5px !important;
+    margin: 5px !important;
+    font-size: 6vw;
+}
+.login-alert .login-alert-top p1, p{
+    padding: 0px !important;
+    margin: 5px !important;
+    font-size: 3.7vw;
+}
+.login-alert .login-alert-down{
+    width: 100%;
+    height: 30%;
+}
+.login-alert .login-alert-down h3{
+    padding: 5px !important;
+    margin: 5px !important;
+    color: red;
+    font-size: 6vw;
+}
+.login-alert .login-alert-down a{
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
